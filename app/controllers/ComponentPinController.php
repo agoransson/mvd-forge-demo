@@ -20,13 +20,17 @@ class ComponentPinController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($component, $pin)
 	{
-		$params = Input::only(['component', 'pin', 'value']);
+		$value = Input::get('value');
 
-		$value = Value::create($params);
+		$val = Value::create([
+			'component' => $component,
+			'pin' => $pin,
+			'value' => $value
+		]);
 
-		return Response::json($value);
+		return Response::json($val);
 	}
 
 
