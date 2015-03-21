@@ -7,9 +7,9 @@ class ComponentPinController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($component)
 	{
-		$values = Value::all();
+		$values = Value::where('component', '=', $component)->get();
 
 		return Response::json($values);
 	}
@@ -40,9 +40,9 @@ class ComponentPinController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($component, $pin)
 	{
-		$value = Value::find($id);
+		$value = Value::where('component', '=', $component)->where('pin', '=', $pin)->firstOrFail();
 
 		return Response::json($value);
 	}
