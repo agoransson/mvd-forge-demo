@@ -65,10 +65,10 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'forge',
-			'username' => 'forge',
-			'password' => '',
+			'host'     => $_ENV['DB_HOST'],
+			'database' => $_ENV['DB_NAME'],
+			'username' => $_ENV['DB_USERNAME'],
+			'password' => $_ENV['DB_PASSWORD'],
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
