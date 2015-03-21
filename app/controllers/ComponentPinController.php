@@ -42,7 +42,7 @@ class ComponentPinController extends \BaseController {
 	 */
 	public function show($component, $pin)
 	{
-		$value = Value::where('component', '=', $component)->where('pin', '=', $pin)->firstOrFail();
+		$value = Value::where('component', '=', $component)->where('pin', '=', $pin)->orderBy('created_at', 'DESC')->firstOrFail();
 
 		return Response::json($value);
 	}
