@@ -15,3 +15,5 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::resource('components.pins', 'ComponentPinController', ['only' => ['index', 'show', 'store']]);
